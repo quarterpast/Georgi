@@ -21,4 +21,4 @@ watch:
 
 .PHONY: test
 test: all
-	node_modules/.bin/lsc markovinator.test.ls
+	node_modules/.bin/lsc georgi.test.ls
