@@ -7,14 +7,14 @@ Andrey (Andrei) Andreyevich Markov (Russian: Андре́й Андре́евич
 
 installation
 ============
-## command line
-  npm install -g georgi
-## api
-  npm install georgi
+### command line
+    npm install -g georgi
+### api
+    npm install georgi
 
 usage
 =====
-  georgi file.txt [more.txt...]
+    georgi file.txt [more.txt...]
 
 api
 ===
