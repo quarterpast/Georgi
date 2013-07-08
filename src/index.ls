@@ -6,15 +6,16 @@ require! {
 	"./trees".plant
 }
 
-read-words = compose do
-	map (.to-lower-case!) . (fs.read-file-sync _, \utf8)
-	concat-map words
-	concat-map lines
-	reject empty
-	filter (== /[a-z]/i)
 
 if module is require.main
 	if process.argv.length > 2
+		read-words = compose do
+			map (.to-lower-case!) . (fs.read-file-sync _, \utf8)
+			concat-map words
+			concat-map lines
+			reject empty
+			filter (== /[a-z]/i)
+
 		tree = process.argv
 		|> drop 2
 		|> read-words
@@ -25,3 +26,7 @@ if module is require.main
 		|> unwords
 		|> console.log
 	else console.log "Usage: #{process.argv.1} ...files"
+
+else
+	export sprout
+	export plant

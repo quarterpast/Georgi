@@ -7,16 +7,17 @@ require! {
 
 # branches: Map String (Map String Number) -> [[String]] -> Map String (Map String Number)
 export branches = (tree,pair)->
+	new-tree = {} import tree
 	if head pair of tree
 		if last pair of tree[head pair]
-			tree[head pair][last pair]++
+			new-tree[head pair][last pair] = tree[head pair][last pair] + 1
 		else
-			tree[head pair][last pair] = 1
+			new-tree[head pair][last pair] = 1
 	else
-		tree[head pair] = (last pair):1
-	return tree
+		new-tree[head pair] = (last pair):1
+	return new-tree
 
-# grow-tree: [String] -> Map String (Map String Number)
+# plant: [String] -> Map String (Map String Number)
 export plant = compose do
 	pairs
 	reject ((is '.') . last . head) # the ends of sentences
