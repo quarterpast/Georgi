@@ -8,8 +8,8 @@ require! {
 # branches: Map String (Map String Number) -> [[String]] -> Map String (Map String Number)
 export branches = (tree,pair)->
 	new-tree = {} import tree
-	if head pair of tree
-		if last pair of tree[head pair]
+	if (head pair) of tree
+		if (last pair) of tree[head pair]
 			new-tree[head pair][last pair] = tree[head pair][last pair] + 1
 		else
 			new-tree[head pair][last pair] = 1
